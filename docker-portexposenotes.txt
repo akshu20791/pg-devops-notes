@@ -1,0 +1,64 @@
+#port expose
+#create a container with container port exposed to 8080 of machine
+1) docker run -it --name pe -p 8080:80 ubuntu /bin/bash   
+2) ls
+3) apt update -y
+4) apt install apache2 -y
+5) cd /var/www/html
+6) cat >index.html  (press enter)
+hello world  (press enter)
+ctrl D to exit
+7) service apache2 start
+8) now go to aws management console ....there select machine ....go to security
+group in the tabs...click on (sg......) in blue color...there edit inbound rule
+....and in add custom tcp ->port 8080 ->any ipv4  -> save the rule
+9) now copy your public ip and paste it in browser ...<<public ip>>:8080
+your app will run 
+
+
+1) Launch 3 websites in 3 different containers in a single machine 
+ 
+i) apache website -> hello world (container 1) 
+ii) apache website -> hi akshat (container 2) 
+iii) nginx web-> default website  (container 3) 
+
+i) docker run -it --name con1 -p 8082:80 ubuntu /bin/bash
+apt update -y
+apt install apache2 -y
+cd /var/www/html
+cat >index.html 
+hello world
+ctrd d 
+service apache2 start
+...go to aws console and enable port 8082...now <<public ip >>:8082
+
+ii) docker run -it --name con2 -p 8083:80 ubuntu /bin/bash
+apt update -y
+apt install apache2 -y
+cd /var/www/html
+cat >index.html 
+hi akshat
+ctrd d 
+service apache2 start
+...go to aws console and enable port 8083...now <<public ip >>:8083
+
+iii)docker run -it --name con3-p 8084:80 nginx /bin/bash
+service nginx start
+
+...go to aws console and enable port 8084...now <<public ip >>:8084
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
