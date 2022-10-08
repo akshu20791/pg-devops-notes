@@ -1,0 +1,22 @@
+Docker swarm
+
+1) launch 3 ubuntu machines
+2) name one as docker manager and other 2 as node1 and node2
+sudo su
+3) apt update -y  (in node and manager)
+4) apt install docker.io (in node and manager)
+5) docker swarm init --advertise-addr <<private ip of your dockerswarm manager>>
+(only in manager)
+6) running the 5(above) sno will give you some command ...copy that and paste it in 
+your nodes
+7) now you might get an error that it is not able to establish the connection
+because in the security group you have not enabled the port...so check the port and 
+enable it in security group
+8) now run the command which you get in sno 5 again in the nodes
+9) after you will run it you will see that it is connected properly
+10) docker service create --name mysvc --replicas 6 -p 8006:8080 tomcat  (run in swarm machine)
+(this will launch 6 replicas of tomcat server where it will equally distribute into master and nodes)
+11) if you go to swarm manager machine and write docker images you will see tomcat image
+
+12) docker ps (you will see 2 running container...check for nodes as well)
+13) docker service ls (you will see the list of the service) (run in swarm manager) 
