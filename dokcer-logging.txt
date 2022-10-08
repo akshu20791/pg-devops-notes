@@ -1,0 +1,53 @@
+Docker logging
+
+###DOCKER UBUNTU MACHINE
+
+1) docker run -it --name c01 ubuntu /bin/bash
+
+2) touch file1 file2 file3 file4 file5
+
+3) ls 
+
+4) exit
+
+5) docker commit c01 simpliimage
+
+6) docker images
+
+7) go to browser and open dockerhub.com and login 
+
+8) come back to mobaxterm
+
+docker tag simpliimage akshu20791/simpliproject   (where akshu20791 this is my dockerhub account id..you have to useyours)
+
+9) docker login
+ username: 
+pass
+
+10) docker push akshu20791/simpliproject
+
+########################PROD SERVER #############
+
+Create a linux machine
+
+1) sudo su
+
+2) yum install docker -y
+
+3) service docker start
+
+4) service docker status
+
+5) docker login 
+username: 
+pass:
+
+6) docker pull akshu20791/simpliproject:latest
+
+7) docker images
+
+8) docker run -it --name c04 akshu20791/simpliproject /bin/bash
+
+9) ls
+
+( you will see the files we created in client server is present here also)

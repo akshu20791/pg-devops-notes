@@ -1,0 +1,36 @@
+##docker compose
+
+
+Launch ubuntu machine (username : ubuntu) 
+
+sudo su
+
+apt update -y
+
+apt install docker.io
+
+systemctl start docker
+
+apt install git
+
+git clone https://github.com/akshu20791/docker-compose-lab
+
+apt install docker-compose
+
+ls
+
+cd docker-compose-lab
+
+docker-compose build
+
+docker-compose up
+
+#now in output you should clint_1 : docker compose is a magic
+
+now you to aws management consolee ->select machine -> security group
+-> edit inbound rules -> add tcp port 1234 all traffic ipv4
+
+now open publicip:1234 in browser 
+
+
+
